@@ -271,88 +271,6 @@ MariaDB [DBMS_EXAM]> SELECT * FROM list_of_boys;
 3 rows in set (0.002 sec)
 
                                                                  PART C
-
-Q9) MariaDB [DBMS_EXAM]> CREATE TABLE EMPLOYEES (
-    -> employee_id int auto_increment primary key,
-    -> first_name char(50) NOT NULL,
-    -> last_name char(50) NOT NULL,
-    -> email VARCHAR(250) NOT NULL,
-    -> phone_number INT(10) NOT NULL,
-    -> hire_date DATE NOT NULL,
-    -> job_id int NOT NULL,
-    -> salary int NOT NULL,
-    -> commission_pct DECIMAL(2,2) NOT NULL,
-    -> manager_id int NOT NULL,
-    -> department_id int NOT NULL);
-Query OK, 0 rows affected (0.036 sec)
-
-MariaDB [DBMS_EXAM]> INSERT INTO EMPLOYEES VALUES
-    -> ("", "Uwera", "Nadia", "nadia@gmail.com", 783003516, "2002-01-15", 1, 2000, 1000, 2, 3),
-    -> ("", "John", "Smith", "john@gmail.com", 782003516, "2012-01-11", 2, 1500, 1000, 1, 70),
-    -> ("", "Ishimwe", "kenny", "kenny@gmail.com", 783003516, "2013-11-10", 2, 6000, 2000, 3, 80),
-    -> ("", "Uwineza", "Nadia", "uwineza@gmail.com", 783002516, "2022-06-05", 2, 3500, 1200, 1, 3),
-    -> ("", "isubirizigihe", "luoange", "ishimwe@gmail.com", 783003516, "2021-11-30", 2, 4000, 1600, 3, 60),
-    -> ("", "Musabika", "fidele", "iranzi@gmail.com", 783013516, "2010-11-15", 1, 1300, 1030, 2, 3),
-    -> ("", "Rwigamba", "claude", "claude@gmail.com", 783023516, "2011-11-05", 2, 3100, 1020, 2, 3);
-Query OK, 7 rows affected, 14 warnings (0.018 sec)
-Records: 7  Duplicates: 0  Warnings: 14
-
-A) MariaDB [DBMS_EXAM]> SELECT employee_id, first_name, last_name, salary FROM employee;
-+-------------+---------------+-----------+--------+
-| employee_id | first_name    | last_name | salary |
-+-------------+---------------+-----------+--------+
-|           1 | Uwera         | Nadia     |   2000 |
-|           2 | John          | Smith     |   1500 |
-|           3 | Ishimwe       | kenny     |   6000 |
-|           4 | Uwineza       | Nadia     |   3500 |
-|           5 | isubirizigihe | luoange   |   4000 |
-|           6 | Musabika      | fidele    |   1300 |
-|           7 | Rwigamba      | claude    |   3100 |
-+-------------+---------------+-----------+--------+
-7 rows in set (0.001 sec)
-
-B)MariaDB [DBMS_EXAM]> SELECT employee_id, first_name, last_name, manager_id, salary FROM employee WHERE manager_id = 100;
-+-------------+---------------+-----------+------------+--------+
-| employee_id | first_name    | last_name | manager_id | salary |
-+-------------+---------------+-----------+------------+--------+
-|           1 | Uwera         | Nadia     |        100 |   2000 |
-|           5 | isubirizigihe | luoange   |        100 |   4000 |
-+-------------+---------------+-----------+------------+--------+
-2 rows in set (0.001 sec)
-
-C) MariaDB [DBMS_EXAM]> SELECT employee_id, first_name, last_name, salary FROM employee WHERE salary >= 4800;
-+-------------+------------+-----------+--------+
-| employee_id | first_name | last_name | salary |
-+-------------+------------+-----------+--------+
-|           3 | Ishimwe    | kenny     |   6000 |
-+-------------+------------+-----------+--------+
-1 row in set (0.001 sec)
-
-
-D) MariaDB [DBMS_EXAM]> UPDATE EMPLOYEE SET last_name = "austin" WHERE employee_id = 1;
-Query OK, 1 row affected (0.018 sec)
-Rows matched: 1  Changed: 1  Warnings: 0
-
-
-MariaDB [DBMS_EXAM]> SELECT employee_id, first_name, last_name, salary FROM employees WHERE last_name = "austin";
-+-------------+------------+-----------+--------+
-| employee_id | first_name | last_name | salary |
-+-------------+------------+-----------+--------+
-|           1 | Uwera      | austin    |   2000 |
-+-------------+------------+-----------+--------+
-1 row in set (0.001 sec)
-
-E)MariaDB [DBMS_EXAM]> SELECT employee_id, first_name, last_name, salary FROM employees WHERE department_id in("60", "70", "80");
-+-------------+---------------+-----------+--------+
-| employee_id | first_name    | last_name | salary |
-+-------------+---------------+-----------+--------+
-|           2 | John          | Smith     |   1500 |
-|           3 | Ishimwe       | kenny     |   6000 |
-|           5 | isubirizigihe | luoange   |   4000 |
-+-------------+---------------+-----------+--------+
-3 rows in set (0.001 sec)
-
-
 Q8)
 1) 
 MariaDB [DBMS_EXAM]> CREATE TABLE Customer (
@@ -634,4 +552,83 @@ MariaDB [dbms_exam]> DROP TABLE CHILD;
 Query OK, 0 rows affected (0.024 sec)
 
 
- 
+
+Q9) MariaDB [DBMS_EXAM]> CREATE TABLE EMPLOYEES (
+    -> employee_id int auto_increment primary key,
+    -> first_name char(50) NOT NULL,
+    -> last_name char(50) NOT NULL,
+    -> email VARCHAR(250) NOT NULL,
+    -> phone_number INT(10) NOT NULL,
+    -> hire_date DATE NOT NULL,
+    -> job_id int NOT NULL,
+    -> salary int NOT NULL,
+    -> commission_pct DECIMAL(2,2) NOT NULL,
+    -> manager_id int NOT NULL,
+    -> department_id int NOT NULL);
+Query OK, 0 rows affected (0.036 sec)
+
+MariaDB [DBMS_EXAM]> INSERT INTO EMPLOYEES VALUES
+    -> ("", "Uwera", "Nadia", "nadia@gmail.com", 783003516, "2002-01-15", 1, 2000, 1000, 2, 3),
+    -> ("", "John", "Smith", "john@gmail.com", 782003516, "2012-01-11", 2, 1500, 1000, 1, 70),
+    -> ("", "Ishimwe", "kenny", "kenny@gmail.com", 783003516, "2013-11-10", 2, 6000, 2000, 3, 80),
+    -> ("", "Uwineza", "Nadia", "uwineza@gmail.com", 783002516, "2022-06-05", 2, 3500, 1200, 1, 3),
+    -> ("", "isubirizigihe", "luoange", "ishimwe@gmail.com", 783003516, "2021-11-30", 2, 4000, 1600, 3, 60),
+    -> ("", "Musabika", "fidele", "iranzi@gmail.com", 783013516, "2010-11-15", 1, 1300, 1030, 2, 3),
+    -> ("", "Rwigamba", "claude", "claude@gmail.com", 783023516, "2011-11-05", 2, 3100, 1020, 2, 3);
+Query OK, 7 rows affected, 14 warnings (0.018 sec)
+Records: 7  Duplicates: 0  Warnings: 14
+
+A) MariaDB [DBMS_EXAM]> SELECT employee_id, first_name, last_name, salary FROM employee;
++-------------+---------------+-----------+--------+
+| employee_id | first_name    | last_name | salary |
++-------------+---------------+-----------+--------+
+|           1 | Uwera         | Nadia     |   2000 |
+|           2 | John          | Smith     |   1500 |
+|           3 | Ishimwe       | kenny     |   6000 |
+|           4 | Uwineza       | Nadia     |   3500 |
+|           5 | isubirizigihe | luoange   |   4000 |
+|           6 | Musabika      | fidele    |   1300 |
+|           7 | Rwigamba      | claude    |   3100 |
++-------------+---------------+-----------+--------+
+7 rows in set (0.001 sec)
+
+B)MariaDB [DBMS_EXAM]> SELECT employee_id, first_name, last_name, manager_id, salary FROM employee WHERE manager_id = 100;
++-------------+---------------+-----------+------------+--------+
+| employee_id | first_name    | last_name | manager_id | salary |
++-------------+---------------+-----------+------------+--------+
+|           1 | Uwera         | Nadia     |        100 |   2000 |
+|           5 | isubirizigihe | luoange   |        100 |   4000 |
++-------------+---------------+-----------+------------+--------+
+2 rows in set (0.001 sec)
+
+C) MariaDB [DBMS_EXAM]> SELECT employee_id, first_name, last_name, salary FROM employee WHERE salary >= 4800;
++-------------+------------+-----------+--------+
+| employee_id | first_name | last_name | salary |
++-------------+------------+-----------+--------+
+|           3 | Ishimwe    | kenny     |   6000 |
++-------------+------------+-----------+--------+
+1 row in set (0.001 sec)
+
+
+D) MariaDB [DBMS_EXAM]> UPDATE EMPLOYEE SET last_name = "austin" WHERE employee_id = 1;
+Query OK, 1 row affected (0.018 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+
+MariaDB [DBMS_EXAM]> SELECT employee_id, first_name, last_name, salary FROM employees WHERE last_name = "austin";
++-------------+------------+-----------+--------+
+| employee_id | first_name | last_name | salary |
++-------------+------------+-----------+--------+
+|           1 | Uwera      | austin    |   2000 |
++-------------+------------+-----------+--------+
+1 row in set (0.001 sec)
+
+E)MariaDB [DBMS_EXAM]> SELECT employee_id, first_name, last_name, salary FROM employees WHERE department_id in("60", "70", "80");
++-------------+---------------+-----------+--------+
+| employee_id | first_name    | last_name | salary |
++-------------+---------------+-----------+--------+
+|           2 | John          | Smith     |   1500 |
+|           3 | Ishimwe       | kenny     |   6000 |
+|           5 | isubirizigihe | luoange   |   4000 |
++-------------+---------------+-----------+--------+
+3 rows in set (0.001 sec)
